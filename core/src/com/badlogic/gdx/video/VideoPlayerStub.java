@@ -20,7 +20,7 @@ import java.io.FileNotFoundException;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.Null;
+
 
 class VideoPlayerStub implements VideoPlayer {
 
@@ -35,7 +35,7 @@ class VideoPlayerStub implements VideoPlayer {
 	}
 
 	@Override
-	@Null
+
 	public Texture getTexture () {
 		return null;
 	}

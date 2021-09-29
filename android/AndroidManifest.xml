@@ -10,10 +10,6 @@
         android:smallScreens="true"
         android:xlargeScreens="true"/>
 
-
-    <uses-sdk xmlns:tools="http://schemas.android.com/tools"
-        tools:overrideLibrary="com.badlogic.gdx.video"
-        />
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true"/>

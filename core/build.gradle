@@ -3,8 +3,13 @@ apply plugin: "java"
 sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 dependencies {
-//    implementation files('libs/gdx-video-1.3.2-20210907.155808-1.jar')
-    implementation "com.badlogicgames.gdx:gdx:1.9.12"
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation files('libs/kryo-2.23.1-SNAPSHOT-all-debug.jar')
+    implementation files('libs/kryonet-9-7-14.jar')
+    implementation files('libs/objenesis-2.1.jar')
+// https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx
+    implementation group: 'com.badlogicgames.gdx', name: 'gdx', version: '1.9.12'
+
 }
 
 sourceSets.main.java.srcDirs = [ "src/" ]
