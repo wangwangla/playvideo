@@ -13,6 +13,7 @@ public class AndroidLauncher extends AndroidApplication {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         new ANRWatchDog().setIgnoreDebugger(true).start();
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
         initialize(new GdxVideoTest1(), config);
