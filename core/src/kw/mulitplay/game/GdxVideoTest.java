@@ -34,6 +34,7 @@ public class GdxVideoTest extends ApplicationAdapter {
     SpriteBatch batch;
     OrthographicCamera camera;
     VideoPlayer videoPlayer;
+    private float hight = 0;
 
     @Override
     public void create () {
@@ -51,6 +52,8 @@ public class GdxVideoTest extends ApplicationAdapter {
             @Override
             public void onVideoSize (float width, float height) {
                 Gdx.app.log("VideoTest", "The video has a size of " + width + "x" + height + ".");
+                float xxx = width / Gdx.graphics.getWidth();
+                hight = height / xxx;
             }
         });
     }
@@ -64,13 +67,12 @@ public class GdxVideoTest extends ApplicationAdapter {
                 System.out.println("Oh no!");
             }
         }
-
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         videoPlayer.update();
         batch.begin();
         Texture frame = videoPlayer.getTexture();
-        if (frame != null) batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        if (frame != null) batch.draw(frame, 0, 0, Gdx.graphics.getWidth(), hight);
         batch.end();
     }
 

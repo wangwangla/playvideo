@@ -58,11 +58,21 @@ class VideoPlayerStub implements VideoPlayer {
 	}
 
 	@Override
+	public void start() {
+
+	}
+
+	@Override
 	public void setOnVideoSizeListener (VideoSizeListener listener) {
 	}
 
 	@Override
 	public void setOnCompletionListener (CompletionListener listener) {
+	}
+
+	@Override
+	public void setPreparedListener(PrepareListener preparedListener) {
+
 	}
 
 	@Override

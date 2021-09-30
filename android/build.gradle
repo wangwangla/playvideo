@@ -110,4 +110,7 @@ repositories {
 
 dependencies {
     implementation project(':core')
+    // https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx-backend-android
+    implementation group: 'com.badlogicgames.gdx', name: 'gdx-backend-android', version: '1.9.12'
+    implementation 'com.github.anrwatchdog:anrwatchdog:1.4.0'
 }
