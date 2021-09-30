@@ -24,6 +24,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.video.VideoPlayer;
 import com.badlogic.gdx.video.VideoPlayerCreator;
 
@@ -37,6 +38,7 @@ public class GdxVideoTest extends ApplicationAdapter {
 
     @Override
     public void create () {
+
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();

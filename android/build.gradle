@@ -110,4 +110,8 @@ repositories {
 
 dependencies {
     implementation project(':core')
+//    implementation project(':gdx')
+// https://mvnrepository.com/artifact/com.badlogicgames.gdx/gdx-backend-android
+    implementation group: 'com.badlogicgames.gdx', name: 'gdx-backend-android', version: '1.9.12'
+
 }
