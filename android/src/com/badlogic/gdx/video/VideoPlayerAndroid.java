@@ -1,5 +1,4 @@
-package com.com.badlogic.gdx.video;
-
+package com.badlogic.gdx.video;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.SurfaceTexture;
