@@ -118,16 +118,6 @@ public class VideoPlayerAndroid implements VideoPlayer, OnFrameAvailableListener
 
     private void initializeMediaPlayer () {
         if (handler == null) handler = new Handler(Looper.getMainLooper());
-
-//		handler.post(new Runnable() {
-//			@Override
-//			public void run () {
-//				synchronized (lock) {
-//					player = new MediaPlayer();
-//					lock.notify();
-//				}
-//			}
-//		});
         player = new MediaPlayer();
     }
 
@@ -181,7 +171,8 @@ public class VideoPlayerAndroid implements VideoPlayer, OnFrameAvailableListener
                 player.setDataSource(file.file().getAbsolutePath());
             }
             player.setSurface(new Surface(videoTexture));
-            player.prepareAsync();
+//            player.prepareAsync();
+            player.prepare();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -268,67 +259,6 @@ public class VideoPlayerAndroid implements VideoPlayer, OnFrameAvailableListener
             });
         }
     }
-
-
-
-	/*
-	*
-	*         filter.change(
-                mBitmap.getWidth(),
-                mBitmap.getHeight(),
-                width,
-                height);
-                *
-                *         if(imgHeight>0&&imgWidth>0&&viewWidth>0&&viewHeight>0){
-            float sWhView=(float)viewWidth/viewHeight;
-            float sWhImg=(float)imgWidth/imgHeight;
-//            float[] projection=new float[16];
-//            float[] camera=new float[16];
-            if(sWhImg>sWhView){
-                Matrix.orthoM(mProjectMatrix,0,
-                        -1,1,-sWhImg/sWhView,
-                        sWhImg/sWhView,1,3);
-            }else{
-                Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
-            }
-            Matrix.setLookAtM(mViewMatrix,0,
-                    0,0,2,
-                    0,0,0,
-                    0,1,0);
-            Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
-	* */
-
-
-    public void test(){
-        float videoHeight = player.getVideoHeight();
-        float videoWidth = player.getVideoWidth();
-        float viewWidth = Gdx.graphics.getWidth();
-        float viewHeight = Gdx.graphics.getHeight();
-
-        if(videoHeight>0&&videoWidth>0&&viewWidth>0&&viewHeight>0){
-            float sWhView=(float)viewWidth/viewHeight;
-            float sWhImg=(float)videoWidth/videoHeight;
-            float[] projection=new float[16];
-            float[] camera=new float[16];
-            if(sWhImg>sWhView){
-//				Matrix.orthoM(mProjectMatrix,0,
-//						-1,1,-sWhImg/sWhView,
-//						sWhImg/sWhView,1,3);
-            }else{
-//				Matrix.orthoM(mProjectMatrix,0,-sWhView/sWhImg,sWhView/sWhImg,-1,1,1,3);
-            }
-//			Matrix.setLookAtM(mViewMatrix,0,
-//					0,0,2,
-//					0,0,0,
-//					0,1,0);
-//			Matrix.multiplyMM(mMVPMatrix,0,mProjectMatrix,0,mViewMatrix,0);
-
-            float v =sWhView/ sWhImg;
-
-            transform = new Matrix4().setToOrtho2D(0, 0, 1, v);
-        }
-    }
-
 
     private void setupRenderTexture () {
         renderer = new ImmediateModeRenderer20(4, false, false, 1);

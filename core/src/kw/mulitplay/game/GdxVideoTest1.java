@@ -26,6 +26,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.badlogic.gdx.video.VideoPlayer;
 import com.badlogic.gdx.video.VideoPlayerCreator;
@@ -35,15 +36,19 @@ import java.io.FileNotFoundException;
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class GdxVideoTest1 extends ApplicationAdapter {
     private Stage stage;
+    public static float wid;
+    public static float hig;
 
     @Override
     public void create () {
-        stage = new Stage();
-        VideoActor actor = new VideoActor();
-        stage.addActor(actor);
-        Viewport viewport = stage.getViewport();
+        ExtendViewport viewport = new ExtendViewport(720,1280);
         viewport.update(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         viewport.apply();
+        wid = viewport.getWorldWidth();
+        hig = viewport.getWorldHeight();
+        stage = new Stage(viewport);
+        VideoActor actor = new VideoActor();
+        stage.addActor(actor);
         actor.setY(viewport.getWorldHeight()/2, Align.center);
     }
 
